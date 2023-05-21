@@ -67,7 +67,14 @@ void free_array(char **args)
  * @line: ...
  * Return: int
  */
-
+void readline_error_handler(ssize_t read_line)
+{
+	if (read_line == -1)
+	{
+		perror("couldn't read line");
+		exit(EXIT_FAILURE);
+	}
+}
 /**
  * main - name of the function
  *
@@ -78,26 +85,19 @@ void free_array(char **args)
  */
 int main(int argc, char *argv[], char *envp[])
 {
-	char *line = NULL, **args = NULL;
+	char *line = NULL, **args = NULL, *exit_status = NULL;
 	size_t len = 0;
 	ssize_t read_line;
-	int shell = isatty(STDIN_FILENO);
-	int is_term = -1;
-	char *exit_status = NULL;
+	int shell = isatty(STDIN_FILENO), is_term = -1;
 	(void) argc;
 
-	if (shell == 1){
+	if (shell == 1)
+	{
 		while (1)
 		{
-			/*if (shell == 1)*/
 			write(STDOUT_FILENO, "myshell> ", 9);
-			/*fflush(stdout);*/
 			read_line = my_getline(&line, &len, STDIN_FILENO);
-			if (read_line == -1)
-			{
-				perror("couldn't read line");
-				exit(EXIT_FAILURE);
-			}
+			readline_error_handler(read_line);
 			line[read_line - 1] =  (line[read_line - 1] == '\n') ?
 				'\0' : line[read_line - 1];
 			exempt_comments(&line);
@@ -122,10 +122,6 @@ int main(int argc, char *argv[], char *envp[])
 		}
 	}
 	else if (shell == 0)
-	{
 		non_interactive(argv, envp);
-	}
-	
 	exit(EXIT_SUCCESS);
 }
-
