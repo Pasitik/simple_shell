@@ -1,5 +1,18 @@
 #include "main.h"
 
+void free_old(char *old_pwd)
+{
+	free(old_pwd);
+	perror("Not a valid directory");
+}
+
+void not_found(DIR *dirp)
+{
+	perror("Directory not found");
+	closedir(dirp);
+	exit(EXIT_FAILURE);
+}
+
 /**
  * _cd - name of the function
  *
@@ -26,8 +39,7 @@ void _cd(char *args[])
 			cd_dash(old_pwd, cwd);
 		else
 		{
-			free(old_pwd);
-			perror("Not a valid directory");
+			free_old(old_pwd);
 		}
 		return;
 	}
@@ -49,8 +61,6 @@ void _cd(char *args[])
 			return;
 		}
 	}
-	perror("Directory not found");
-	closedir(dirp);
-	exit(EXIT_FAILURE);
+	not_found(dirp);
 }
 
