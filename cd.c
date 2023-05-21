@@ -9,13 +9,10 @@
 
 void _cd(char *args[])
 {
-	char *dir_name = args[1];
+	char *dir_name = args[1], cwd[1024], absolute_path[1024], *old_pwd = NULL;
 	DIR *dirp = opendir(".");
 	struct dirent *dp;
 	struct stat filestat;
-	char cwd[1024];
-	char absolute_path[1024];
-	char *old_pwd = NULL;
 
 	if (getcwd(cwd, sizeof(cwd)) == NULL)
 	{

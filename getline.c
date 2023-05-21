@@ -27,7 +27,6 @@ int my_getline(char **line_ptr, size_t *n_chars, FILE *stream )
 		{
 			return (-1);
 		}
-
 		*n_chars += read_chars;
 		if (isFirstRead == 0 && *n_chars >= oldsize)
 		{
@@ -35,7 +34,6 @@ int my_getline(char **line_ptr, size_t *n_chars, FILE *stream )
 			line = _realloc(line, oldsize, new_size);
 			oldsize = new_size;
 		}
-
 		if (isFirstRead == 1)
 		{
 			oldsize += BUFFER_SIZE;
