@@ -5,13 +5,15 @@ int non_i_tokenization(char **args, char *line);
 
 
 /**
+ * non_interactive - name of function
  *
- *
+ * @argv: array of params
+ * @envp: params
  *
  */
 void non_interactive(char **argv, char **envp)
 {
-	char *lineptr = NULL; 
+	char *lineptr = NULL;
 	char **args = NULL;
 	size_t n = 0;
 	ssize_t line = 0;
@@ -27,7 +29,7 @@ void non_interactive(char **argv, char **envp)
     /*printf("%ld\n%s\n ", line, lineptr);*/
 	printf("%ld\n", line);
 	free(lineptr);
-	while(i < n_args)
+	while (i < n_args)
 	{
 		free(args[i]);
 		i++;
@@ -37,7 +39,7 @@ void non_interactive(char **argv, char **envp)
 }
 
 /**
- * tonkenization - breaks command into toke
+ * non_i_tokenization - breaks command into toke
  *
  * @args: array of params
  * @line: line of commands

@@ -4,10 +4,12 @@
  * my_getline - afunction to get the cmd line input
  *
  * @line_ptr: pointer to line input
+ * @n_chars: pointer to number of characters
+ * @stream: pointer to stream
  * Return: the number of characters read
  */
 
-int my_getline(char **line_ptr, size_t *n_chars, FILE *stream )
+int my_getline(char **line_ptr, size_t *n_chars, FILE *stream)
 {
 	int isFirstRead = 1;
 	char *line = malloc(sizeof(char) * BUFFER_SIZE);
