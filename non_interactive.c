@@ -51,7 +51,7 @@ int non_i_tokenization(char **args, char *line)
 	char *linecpy = NULL;
 	int i = 0, flag = 0;
 
-	linecpy = (char *) malloc(sizeof(char) * (strlen(line) + 1));
+	linecpy = (char *) malloc(sizeof(char) * (_strlen(line) + 1));
 
 	_strcpy(linecpy, line);
 
