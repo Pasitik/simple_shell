@@ -46,7 +46,6 @@ char *cmd_location(char *command, char *str_path)
 	dir = strtok(pathcpy, ":");
 	if (access(command, X_OK) == 0)
 	{
-		printf("valid");
 		free(pathcpy);
 		return (command);
 	}
