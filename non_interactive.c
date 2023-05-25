@@ -18,7 +18,7 @@ void non_interactive(char **argv, char **envp)
 	size_t n = 0;
 	ssize_t line = 0;
 	int n_args = 0, i = 0;
-
+	(void) line;
 
 	line = getline(&lineptr, &n, stdin);
 
@@ -26,8 +26,6 @@ void non_interactive(char **argv, char **envp)
 
 	n_args = non_i_tokenization(args, lineptr);
 	new_process(args, argv[0], envp);
-    /*printf("%ld\n%s\n ", line, lineptr);*/
-	printf("%ld\n", line);
 	free(lineptr);
 	while (i < n_args)
 	{
@@ -66,7 +64,7 @@ int non_i_tokenization(char **args, char *line)
 			i = 0;
 			while (i < arg_count)
 			{
-				if (strcmp(token, args[i]) == 0)
+				if (_strcmp(token, args[i]) == 0)
 				{
 					flag = 1;
 					break;
