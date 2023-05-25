@@ -1,6 +1,10 @@
 #include "main.h"
 
-
+/**
+ * n_toks - name of function
+ * @line: parameter of the function
+ * Return: arg_count
+ */
 int n_toks(char *line)
 {
 	char *linecpy = NULL;

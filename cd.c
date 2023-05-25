@@ -1,11 +1,23 @@
 #include "main.h"
 
+/**
+ * free_old - name of the function
+ *
+ *  @old_pwd: parameter 1
+ *   Return: the function
+ */
 void free_old(char *old_pwd)
 {
 	free(old_pwd);
 	perror("Not a valid directory");
 }
 
+/**
+ * not_found - name of the function
+ *
+ *  @dirp: parameter 1
+ *   Return: the function
+ */
 void not_found(DIR *dirp)
 {
 	perror("Directory not found");
@@ -34,8 +46,8 @@ void _cd(char *args[])
 	}
 	if (dir_name && (*dir_name == '-'))
 	{
-		if((*(dir_name + 1) == '-' && *(dir_name + 2) == '\0')
-		|| *(dir_name + 1) == '\0') 
+		if ((*(dir_name + 1) == '-' && *(dir_name + 2) == '\0')
+		|| *(dir_name + 1) == '\0')
 			cd_dash(old_pwd, cwd);
 		else
 		{

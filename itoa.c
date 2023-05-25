@@ -1,7 +1,5 @@
 #include "main.h"
 
-#include "main.h"
-
 /**
  * num_length - numlength
  * @num_len: nums
@@ -30,7 +28,11 @@ int num_length(int num_len)
 	return (len);
 }
 
-
+/**
+ * _itoa - name of function
+ * @num_len: nums
+ * Return: len
+ */
 char *_itoa(int num_len)
 {
 	char *buff;
